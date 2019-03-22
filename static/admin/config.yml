@@ -4,6 +4,8 @@ backend:
 
 media_folder: static/assets
 public_folder: assets
+site_url: https://practical-mestorf-9c8a21.netlify.com
+display_url: https://practical-mestorf-9c8a21.netlify.com
 
 collections:
   - name: location
