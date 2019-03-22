@@ -9,7 +9,7 @@ collections:
   - name: location
     label: Locations
     label_singular: Location
-    folder: locations
+    folder: content/locations
     create: true
     fields:
       - { name: date, label: Date, widget: date }
