@@ -1,0 +1,17 @@
+backend:
+  name: test-repo
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: location
+    label: Locations
+    label_singular: Location
+    folder: locations
+    create: true
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Location Name, widget: string, required: true }
+      - { name: cover, label: Featured Image, widget: image, required: true }
+      - { name: body, label: Body, widget: markdown }
