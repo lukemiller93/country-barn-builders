@@ -32,4 +32,39 @@ collections:
           - label: "Alt Text"
             name: "alt_text"
             widget: "string"
-      - { name: "body", label: "Body", widget: "markdown" }
+      - label: "Address"
+        name: "address"
+        widget: "object"
+        fields:
+          - { label: "Street Address", name: "street", widget: "string" }
+          - { label: "City", name: "city", widget: "string" }
+          - {
+              label: "State",
+              name: "state",
+              widget: "string",
+              pattern: ["[A-Z]{2}", "Enter state abbrev., must be all caps"],
+            }
+          - { label: "Postal Code", name: "post_code", widget: "string" }
+      - label: "Phone"
+        name: "phone"
+        widget: "string"
+      - label: "Business Hours"
+        name: "business_hours"
+        widget: "list"
+        fields:
+          - label: "Add Hours"
+            name: "add_hours"
+            widget: "object"
+            fields:
+              - {
+                  label: "Day",
+                  name: "day",
+                  widget: string,
+                  default: "Mon. - Fri.",
+                }
+              - {
+                  label: "Hours",
+                  name: "hours",
+                  widget: string,
+                  default: "8am - 5pm",
+                }
