@@ -68,11 +68,11 @@ collections:
           widget: "date",
           format: "MMM Do YY",
         }
-      - { name: "size", label: "Building Size", widget: "text" }
-      - { name: "style", label: "Building Style", widget: "text" }
-      - { name: "serial", label: "Serial Number", widget: "text" }
+      - { name: "size", label: "Building Size", widget: "string" }
+      - { name: "style", label: "Building Style", widget: "string" }
+      - { name: "serial", label: "Serial Number", widget: "string" }
       - { name: "price", label: "Sale Price", widget: "number" }
-      - { name: "options", label: "Building Options", widget: "textarea" }
+      - { name: "options", label: "Building Options", widget: "text" }
       - label: "Image Gallery"
         name: "gallery_image"
         widget: "list"
