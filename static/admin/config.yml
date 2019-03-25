@@ -82,10 +82,10 @@ collections:
         name: "gallery_image"
         widget: "list"
         fields:
-          - { label: "gallery_item", name: "Image", widget: image }
+          - { label: "Image", name: "gallery_item", widget: image }
           - {
-              label: "alt_text",
-              name: "Alt Text",
+              label: "Alt Text",
+              name: "alt_text",
               widget: string,
               required: true,
             }
