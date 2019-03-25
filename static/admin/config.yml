@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: lukemiller93/country-barn-builders
 
 media_folder: static/assets
@@ -14,7 +14,22 @@ collections:
     folder: content/locations
     create: true
     fields:
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Location Name, widget: string, required: true }
-      - { name: cover, label: Featured Image, widget: image, required: true }
-      - { name: body, label: Body, widget: markdown }
+      - { name: "locationTemplate", widget: "hidden", default: "location" }
+      - {
+          name: "title",
+          label: "Location Name",
+          widget: "string",
+          required: true,
+        }
+      - name: cover
+        label: Featured Image
+        widget: object
+        required: true
+        fields:
+          - label: "Image"
+            name: "feature_image"
+            widget: "image"
+          - label: "Alt Text"
+            name: "alt_text"
+            widget: "string"
+      - { name: "body", label: "Body", widget: "markdown" }
