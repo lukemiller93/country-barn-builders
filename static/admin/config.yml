@@ -13,6 +13,8 @@ collections:
     label_singular: Location
     folder: content/locations
     create: true
+    editor:
+      preview: false
     fields:
       - { name: "template", widget: "hidden", default: "location" }
       - {
@@ -60,6 +62,8 @@ collections:
     label_singular: Special Sale
     folder: content/specials
     create: true
+    editor:
+      preview: false
     fields:
       - { name: "template", widget: "hidden", default: "product" }
       - {
