@@ -21,9 +21,9 @@ collections:
           widget: "string",
           required: true,
         }
-      - name: cover
-        label: Featured Image
-        widget: object
+      - name: "cover"
+        label: "Featured Image"
+        widget: "object"
         required: true
         fields:
           - label: "Image"
