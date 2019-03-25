@@ -20,20 +20,20 @@ const productTemplate = ({ data }, props) => {
 }
 
 export default productTemplate
-export const pageQuery = graphql`
-  query($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      frontmatter {
-        date
-        size
-        style
-        serial
-        price
-        options
-        gallery_image {
-          gallery_item
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query($id: String!) {
+//     markdownRemark(id: { eq: $id }) {
+//       frontmatter {
+//         date
+//         size
+//         style
+//         serial
+//         price
+//         options
+//         gallery_image {
+//           gallery_item
+//         }
+//       }
+//     }
+//   }
+// `
