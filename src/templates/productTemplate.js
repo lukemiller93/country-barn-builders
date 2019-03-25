@@ -3,18 +3,18 @@ import { graphql } from "gatsby"
 import { Layout } from "../layouts"
 
 const productTemplate = ({ data }, props) => {
-  const {
-    date,
-    size,
-    style,
-    serial,
-    price,
-    options,
-    gallery_image,
-  } = data.markdownRemark.frontmatter
+  // const {
+  //   date,
+  //   size,
+  //   style,
+  //   serial,
+  //   price,
+  //   options,
+  //   gallery_image,
+  // } = data.markdownRemark.frontmatter
   return (
     <Layout>
-      <h1>{size}</h1>
+      <h1>boop</h1>
     </Layout>
   )
 }
