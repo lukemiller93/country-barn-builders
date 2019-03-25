@@ -27,7 +27,14 @@ export const locationsQuery = graphql`
             title
             cover {
               alt_text
-              feature_image
+              feature_image {
+                id
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
             locationTemplate
             address {
