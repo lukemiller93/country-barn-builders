@@ -52,19 +52,5 @@ collections:
         name: "business_hours"
         widget: "list"
         fields:
-          - label: "Add Hours"
-            name: "add_hours"
-            widget: "object"
-            fields:
-              - {
-                  label: "Day",
-                  name: "day",
-                  widget: string,
-                  default: "Mon. - Fri.",
-                }
-              - {
-                  label: "Hours",
-                  name: "hours",
-                  widget: string,
-                  default: "8am - 5pm",
-                }
+          - { label: "Day", name: "day", widget: string }
+          - { label: "Hours", name: "hours", widget: string }
