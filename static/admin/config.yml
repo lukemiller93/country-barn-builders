@@ -14,7 +14,7 @@ collections:
     folder: content/locations
     create: true
     fields:
-      - { name: "locationTemplate", widget: "hidden", default: "location" }
+      - { name: "template", widget: "hidden", default: "location" }
       - {
           name: "title",
           label: "Location Name",
@@ -54,3 +54,33 @@ collections:
         fields:
           - { label: "Day", name: "day", widget: string }
           - { label: "Hours", name: "hours", widget: string }
+
+  - name: special
+    label: Special Sales
+    label_singular: Special Sale
+    folder: content/specials
+    create: true
+    fields:
+      - { name: "template", widget: "hidden", default: "product" }
+      - {
+          name: "date",
+          label: "Date Added",
+          widget: "date",
+          format: "MMM Do YY",
+        }
+      - { name: "size", label: "Building Size", widget: "text" }
+      - { name: "style", label: "Building Style", widget: "text" }
+      - { name: "serial", label: "Serial Number", widget: "text" }
+      - { name: "price", label: "Sale Price", widget: "number" }
+      - { name: "options", label: "Building Options", widget: "textarea" }
+      - label: "Image Gallery"
+        name: "gallery_image"
+        widget: "list"
+        fields:
+          - { label: "gallery_item", name: "Image", widget: image }
+          - {
+              label: "alt_text",
+              name: "Alt Text",
+              widget: string,
+              required: true,
+            }

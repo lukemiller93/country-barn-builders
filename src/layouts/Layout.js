@@ -20,6 +20,12 @@ const Layout = ({ children }) => {
         <Link to="/locations">
           <h3>Locations</h3>
         </Link>
+        <Link to="/specials">
+          <h3>Specials</h3>
+        </Link>
+        <Link to="/contact">
+          <h3>Contact</h3>
+        </Link>
       </header>
       {children}
     </div>
