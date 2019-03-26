@@ -1,5 +1,4 @@
 ---
-locationTemplate: location
 title: London Sales Office
 cover:
   alt_text: >-
@@ -10,7 +9,7 @@ address:
   city: London
   post_code: '40741'
   state: KY
-  street: 123 Leavy Road
+  street: 580 Highway 192 W.
 phone: 606-877-1216
 business_hours:
   - day: Mon. - Thurs.
