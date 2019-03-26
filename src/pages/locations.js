@@ -1,7 +1,6 @@
+import { graphql } from "gatsby"
 import React from "react"
 import { Layout } from "../layouts"
-import { graphql } from "gatsby"
-import Image from "gatsby-image"
 
 const Locations = ({ data }) => {
   return (
@@ -9,7 +8,7 @@ const Locations = ({ data }) => {
       <h1>Locations</h1>
       <p>this is the locations page</p>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <h3>{node.frontmatter.title}</h3>
+        <h3 key={node.id}>{node.frontmatter.title}</h3>
       ))}
     </Layout>
   )
@@ -19,7 +18,9 @@ export default Locations
 
 export const locationsQuery = graphql`
   query locations {
-    allMarkdownRemark {
+    allMarkdownRemark(
+      filter: { frontmatter: { template: { eq: "location" } } }
+    ) {
       edges {
         node {
           id
@@ -36,7 +37,6 @@ export const locationsQuery = graphql`
                 }
               }
             }
-            locationTemplate
             address {
               city
               post_code

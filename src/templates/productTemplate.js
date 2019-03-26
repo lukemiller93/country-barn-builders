@@ -1,9 +1,10 @@
-import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
+import React from "react"
 import { Layout } from "../layouts"
 
-const productTemplate = ({ data }, props) => {
+const productTemplate = ({ data, pageContext }, props) => {
+  const { next, prev } = pageContext
   const {
     date,
     size,
@@ -19,13 +20,29 @@ const productTemplate = ({ data }, props) => {
         {size} {style}
       </h1>
 
-      {gallery_image.map(item => (
-        <Image
-          key={item.gallery_item.id}
-          fluid={item.gallery_item.childImageSharp.fluid}
-          alt={item.alt_text}
-        />
-      ))}
+      <section>
+        {gallery_image.map(item => (
+          <Image
+            key={item.gallery_item.id}
+            fluid={item.gallery_item.childImageSharp.fluid}
+            alt={item.alt_text}
+          />
+        ))}
+      </section>
+      <div>
+        {prev && (
+          <Link to={`/specials/${prev.frontmatter.serial}/`}>{`${
+            prev.frontmatter.size
+          } ${prev.frontmatter.style}`}</Link>
+        )}
+      </div>
+      <div>
+        {next && (
+          <Link to={`/specials/${next.frontmatter.serial}/`}>{`${
+            next.frontmatter.size
+          } ${next.frontmatter.style}`}</Link>
+        )}
+      </div>
     </Layout>
   )
 }
