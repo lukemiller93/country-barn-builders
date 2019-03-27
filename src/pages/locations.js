@@ -1,14 +1,17 @@
 import { graphql } from "gatsby"
 import React from "react"
-import { Layout } from "../layouts"
+import { Layout , ContentWrapper} from "../layouts"
 const Locations = ({ data }) => {
   return (
     <Layout>
-      <h1>Locations</h1>
-      <p>this is the locations page</p>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <h3 key={node.id}>{node.frontmatter.title}</h3>
-      ))}
+      <ContentWrapper>
+        <h1>Locations</h1>
+        <h2>Hello</h2>
+        <p>this is the locations page</p>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <h3 key={node.id}>{node.frontmatter.title}</h3>
+        ))}
+      </ContentWrapper>
     </Layout>
   )
 }

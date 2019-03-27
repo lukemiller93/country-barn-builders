@@ -1,13 +1,14 @@
+import styled from "@emotion/styled"
+import { injectGlobal } from "emotion"
+import { ThemeProvider } from "emotion-theming"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import { ThemeProvider } from "emotion-theming"
-import { injectGlobal } from "emotion"
-import Breakpoint from 'react-socks'
+import Breakpoint from "react-socks"
+import "typeface-roboto"
+import "typeface-wellfleet"
 import theme from "../../config/theme"
-import 'typeface-wellfleet'
-import 'typeface-roboto'
+import BottomNavigationBar from "../components/BottomNavigationBar"
 import Navbar from "../components/Navbar"
-import BottomNavigationBar from '../components/BottomNavigationBar'
 injectGlobal`
   *,*:before, *:after {
     box-sizing: inherit;
@@ -17,11 +18,17 @@ injectGlobal`
     height: 100%;
     margin: 0;
     padding: 0;
+    background:#F9F5E3 ;
   }
 `
-
-
-
+const Main = styled.main`
+  @media all and (max-width: 991px) {
+    padding-bottom: 60px;
+  }
+  @media all and (min-width: 992px) {
+    padding-top: 56px;
+  }
+`
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query HeaderQuery {
@@ -35,8 +42,8 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-          <Navbar />
-        {children}
+        <Navbar />
+        <Main>{children}</Main>
         <Breakpoint small down>
           <BottomNavigationBar />
         </Breakpoint>
