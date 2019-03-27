@@ -1,7 +1,6 @@
 import { graphql } from "gatsby"
 import React from "react"
 import { Layout } from "../layouts"
-
 const Locations = ({ data }) => {
   return (
     <Layout>

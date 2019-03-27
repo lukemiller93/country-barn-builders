@@ -58,6 +58,12 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: "gatsby-plugin-typography",
+      options: {
+        pathToConfigModule: "config/typography.js",
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,

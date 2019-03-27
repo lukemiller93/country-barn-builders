@@ -1,11 +1,13 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
-import React, { Fragment } from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import React from "react"
 import { ThemeProvider } from "emotion-theming"
-import { injectGlobal } from "react-emotion"
+import { injectGlobal } from "emotion"
+import Breakpoint from 'react-socks'
 import theme from "../../config/theme"
-import logo from "../images/company-logo.svg"
-import Image from "gatsby-image"
-
+import 'typeface-wellfleet'
+import 'typeface-roboto'
+import Navbar from "../components/Navbar"
+import BottomNavigationBar from '../components/BottomNavigationBar'
 injectGlobal`
   *,*:before, *:after {
     box-sizing: inherit;
@@ -17,6 +19,8 @@ injectGlobal`
     padding: 0;
   }
 `
+
+
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -31,21 +35,11 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-        <header>
-          <Link to="/">
-            <img src={logo} alt="logo for Country Barn Builders" />
-          </Link>
-          <Link to="/locations">
-            <h3>Locations</h3>
-          </Link>
-          <Link to="/specials">
-            <h3>Specials</h3>
-          </Link>
-          <Link to="/contact">
-            <h3>Contact</h3>
-          </Link>
-        </header>
+          <Navbar />
         {children}
+        <Breakpoint small down>
+          <BottomNavigationBar />
+        </Breakpoint>
       </>
     </ThemeProvider>
   )
