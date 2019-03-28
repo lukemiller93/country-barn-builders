@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 import { injectGlobal } from "emotion"
 import { ThemeProvider } from "emotion-theming"
-import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import Breakpoint from "react-socks"
 import "typeface-roboto"
@@ -30,15 +29,6 @@ const Main = styled.main`
   }
 `
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
   return (
     <ThemeProvider theme={theme}>
       <>

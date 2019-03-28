@@ -6,12 +6,12 @@ import { Layout } from "../layouts"
 const productTemplate = ({ data, pageContext }, props) => {
   const { next, prev } = pageContext
   const {
-    date,
+    // date,
     size,
     style,
-    serial,
-    price,
-    options,
+    // serial,
+    // price,
+    // options,
     gallery_image,
   } = data.markdownRemark.frontmatter
   return (

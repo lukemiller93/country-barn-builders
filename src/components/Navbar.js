@@ -8,7 +8,7 @@ import logo from "../images/company-logo.svg"
 
 const Wrapper = styled.section`
   width: 100%;
-  background: ${props => props.theme.colors.primary.dark};
+  background: ${props => props.theme.colors.primary.light};
   height: 56px;  
   z-index: 1000;
 
