@@ -3,13 +3,14 @@ import React from "react"
 import { Layout } from "../layouts"
 
 const specialsPage = ({ data, pageContext }) => {
-  const { tags } = pageContext
+  const  {tags}  = pageContext
   const specials = data.allMarkdownRemark.edges
-  console.log(pageContext)
+  console.log(tags)
   return (
     <Layout>
       <ul>
         {tags.map((tagName, index) => {
+          console.table(tagName, index)
           return (
             <li key={index}>
               <Link to={`/tags/${tagName}`}>{tagName}</Link>

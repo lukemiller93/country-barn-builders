@@ -1,10 +1,11 @@
-import styled from "@emotion/styled"
-import {css} from "@emotion/core"
-import React from 'react'
-import {Layout, ContentWrapper} from '../layouts'
-import Image from 'gatsby-image'
-import RedButton from '../components/RedButton'
-import Button from '@material-ui/core/Button'
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
+import Button from '@material-ui/core/Button';
+import { graphql } from 'gatsby';
+import Image from 'gatsby-image';
+import React from 'react';
+import RedButton from '../components/RedButton';
+import { ContentWrapper, Layout } from '../layouts';
 const QualitySection = styled.section`
   background: white;
   padding: 2rem 0;
