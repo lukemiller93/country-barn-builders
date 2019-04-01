@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 import Button from "@material-ui/core/Button"
 import RedButton from "./RedButton"
+import { ContentWrapper } from "../layouts"
 
 const FormContainer = styled.form`
   width: 100%;
@@ -157,16 +158,6 @@ const ContactForm = props => {
         />
       </FormGroup>
       <RedButton buttonText="Submit" type="submit" />
-      {/* <Button
-        variant="contained"
-        css={css`
-          background: #902822 !important;
-          color: #f5f5f6 !important;
-        `}
-        type="submit"
-      >
-        Submit
-      </Button> */}
     </FormContainer>
   )
 }
