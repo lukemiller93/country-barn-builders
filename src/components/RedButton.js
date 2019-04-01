@@ -21,16 +21,28 @@ const styles = {
 }
 function RedButton(props) {
   const { classes } = props
-  return (
-    <Button
-      {...props}
-      to={props.to}
-      component={Link}
-      classes={{ root: classes.root, label: classes.label }}
-    >
-      {props.buttonText}
-    </Button>
-  )
+  if (props.type === "submit") {
+    return (
+      <Button
+        {...props}
+        component={"button"}
+        classes={{ root: classes.root, label: classes.label }}
+      >
+        {props.buttonText}
+      </Button>
+    )
+  } else {
+    return (
+      <Button
+        {...props}
+        to={props.to}
+        component={Link}
+        classes={{ root: classes.root, label: classes.label }}
+      >
+        {props.buttonText}
+      </Button>
+    )
+  }
 }
 
 export default withStyles(styles)(RedButton)

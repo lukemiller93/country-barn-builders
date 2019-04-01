@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 import Button from "@material-ui/core/Button"
+import RedButton from "./RedButton"
 
 const FormContainer = styled.form`
   width: 100%;
@@ -155,7 +156,8 @@ const ContactForm = props => {
           required
         />
       </FormGroup>
-      <Button
+      <RedButton buttonText="Submit" type="submit" />
+      {/* <Button
         variant="contained"
         css={css`
           background: #902822 !important;
@@ -164,7 +166,7 @@ const ContactForm = props => {
         type="submit"
       >
         Submit
-      </Button>
+      </Button> */}
     </FormContainer>
   )
 }
