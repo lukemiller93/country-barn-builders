@@ -3,21 +3,22 @@ import React from "react"
 import { Layout } from "../layouts"
 
 const specialsPage = ({ data, pageContext }) => {
-  const  {tags}  = pageContext
   const specials = data.allMarkdownRemark.edges
-  console.log(tags)
+  console.log(data.tags)
+  const tags = data.tags.group
   return (
     <Layout>
       <ul>
-        {tags.map((tagName, index) => {
-          console.table(tagName, index)
+        {tags.map((tag, index) => {
+          const {fieldValue, totalCount} = tag
           return (
             <li key={index}>
-              <Link to={`/tags/${tagName}`}>{tagName}</Link>
+              <Link to={`/tags/${fieldValue}/`}>{fieldValue}</Link>
             </li>
           )
         })}
       </ul>
+      
       {specials.map(({ node }) => {
         const { size, serial, style } = node.frontmatter
         return (
@@ -33,6 +34,15 @@ const specialsPage = ({ data, pageContext }) => {
 export default specialsPage
 export const allSpecialsQuery = graphql`
   query allSpecials {
+    tags: allMarkdownRemark(
+      limit: 2000
+      filter: { frontmatter: { template: { eq: "product" } } }
+    ) {
+      group(field: frontmatter___size) {
+        fieldValue
+        totalCount
+      }
+    }
     allMarkdownRemark(
       sort: { fields: [frontmatter___size], order: ASC }
       filter: { frontmatter: { template: { eq: "product" } } }

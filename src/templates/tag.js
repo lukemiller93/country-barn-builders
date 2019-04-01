@@ -1,20 +1,29 @@
-import { Link } from "gatsby"
 import React from "react"
+import PropTypes from "prop-types"
+//Components
+import { Link, graphql } from "gatsby"
 import { Layout } from "../layouts"
-const tagTemplate = ({ pageContext }) => {
-  const { taggedProducts, tagName } = pageContext
+const tagTemplate = ({ pageContext, data }) => {
+  const { tag } = pageContext
+  const { edges, totalCount } = data.allMarkdownRemark
+  const tagHeader = `${totalCount} shed${
+    totalCount === 1 ? "" : "s"
+  } available in ${tag} size`
   return (
     <Layout>
-      <div>{`${tagName} sheds`}</div>
+      <div>
+        <h1>{tagHeader}</h1>
+      </div>
       <div>
         <Link to="/specials">All Sheds</Link>
       </div>
       <ul>
-        {taggedProducts.map((product, index) => {
+        {edges.map(({node}) => {
+          const {size, style, serial} = node.frontmatter
           return (
-            <li key={index}>
-              <Link to={`/specials/${product.frontmatter.serial}/`}>
-                {product.frontmatter.size}
+            <li key={node.id}>
+              <Link to={`/specials/${serial}/`}>
+                {`${size} ${style}`}
               </Link>
             </li>
           )
@@ -24,4 +33,46 @@ const tagTemplate = ({ pageContext }) => {
   )
 }
 
+tagTemplate.propTypes = {
+  pageContext: PropTypes.shape({
+    tag: PropTypes.string.isRequired,
+  }),
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      totalCount: PropTypes.number.isRequired,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              size: PropTypes.string.isRequired,
+              style: PropTypes.string.isRequired,
+              serial: PropTypes.string.isRequired,
+            }),
+          }),
+        }).isRequired
+      ),
+    }),
+  }),
+}
+
 export default tagTemplate
+export const tagQuery = graphql`
+  query($tag: String){
+    allMarkdownRemark(
+      filter: { frontmatter: { size: { eq: $tag } } }
+      limit: 2000
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            size
+            style
+            serial
+          }
+        }
+      }
+    }
+  }
+`

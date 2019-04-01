@@ -9,7 +9,7 @@ import logo from "../images/company-logo.svg"
 const Wrapper = styled.section`
   width: 100%;
   background: ${props => props.theme.colors.primary.light};
-  height: 56px;  
+  height: 56px;
   z-index: 1000;
 
   @media all and (min-width: 992px) {
@@ -41,11 +41,21 @@ const Nav = styled.nav`
   .nav-link__active {
     font-weight: 500;
     color: ${props => props.theme.colors.secondary.base};
-    border-bottom: 3px solid ${props => props.theme.colors.secondary.base};
     position: relative;
     bottom: -1px;
     transition: color,
       border 150ms ${props => props.theme.transition.easeInOutCubic};
+
+    &::after {
+      display: block;
+      position: absolute;
+      bottom: -3px;
+      content: "";
+      left: 20%;
+      width: 70%;
+      margin: 0 auto;
+      border-bottom: 3px solid ${props => props.theme.colors.secondary.base};
+    }
   }
 
   @media all and (max-width: 767px) {
@@ -62,10 +72,9 @@ const NavLink = styled(Link)`
 
   &:hover,
   &:focus {
+    font-weight: 500;
     color: ${props => props.theme.colors.secondary.base};
-    border-bottom: 3px solid ${props => props.theme.colors.secondary.base};
-    transition: color,
-      border 150ms ${props => props.theme.transition.easeInOutCubic};
+    transition: color 150ms ${props => props.theme.transition.easeInOutCubic};
   }
 
   svg {

@@ -1,8 +1,15 @@
 import React from "react"
-import { Layout } from "../layouts"
+import styled from "@emotion/styled"
+import { Layout, ContentWrapper } from "../layouts"
+import ContactForm from "../components/ContactForm"
 
 const contactPage = props => {
-  return <Layout>This is the contact page</Layout>
+  console.log(props.location)
+  return (
+    <Layout>
+      <ContactForm location={props.location.pathname} />
+    </Layout>
+  )
 }
 
 export default contactPage

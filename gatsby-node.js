@@ -1,4 +1,5 @@
 const path = require("path")
+const _ = require("lodash")
 const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
 exports.onCreateNode = ({ node }) => {
@@ -9,7 +10,7 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   const productTemplate = path.resolve(`src/templates/productTemplate.js`)
-  const tagPage = path.resolve(`src/pages/specials.js`)
+  const tagPage = path.resolve(`src/templates/specials.js`)
   const tagPosts = path.resolve(`src/templates/tag.js`)
 
   return graphql(`
@@ -23,8 +24,8 @@ exports.createPages = ({ actions, graphql }) => {
             id
             frontmatter {
               size
-              style
               serial
+              style
             }
           }
         }
@@ -36,42 +37,6 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const products = result.data.allMarkdownRemark.edges
-
-    //create tags page
-    const productsByTag = {}
-
-    products.forEach(({ node }) => {
-      if (node.frontmatter.size) {
-        if (!productsByTag[node.frontmatter.size]) {
-          productsByTag[node.frontmatter.size] = []
-        }
-        productsByTag[node.frontmatter.size].push(node)
-      }
-    })
-
-    const tags = Object.keys(productsByTag)
-
-    createPage({
-      path: "/specials",
-      component: tagPage,
-      context: {
-        tags: tags.sort(),
-      },
-    })
-
-    // create tags
-    tags.forEach(tagName => {
-      const taggedProducts = productsByTag[tagName]
-
-      createPage({
-        path: `/tags/${tagName}/`,
-        component: tagPosts,
-        context: {
-          taggedProducts,
-          tagName,
-        },
-      })
-    })
 
     // create product pages
     products.forEach(({ node }, index) => {
@@ -86,6 +51,27 @@ exports.createPages = ({ actions, graphql }) => {
           prev,
           next,
         }, // additional data can be passed via context
+      })
+    })
+
+    // Tag pages:
+    let tags = []
+    // Iterate through each product, putting all found sizes into `tags`
+    _.each(products, edge => {
+      if (_.get(edge, "node.frontmatter.size")) {
+        tags = tags.concat(edge.node.frontmatter.size)
+      }
+    })
+    // Eliminate duplicate tags
+    tags = _.uniq(tags)
+    // Make tag pages
+    tags.forEach(tag => {
+      createPage({
+        path: `/tags/${tag}/`,
+        component: tagPosts,
+        context: {
+          tag,
+        },
       })
     })
   })

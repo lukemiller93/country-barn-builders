@@ -23,6 +23,7 @@ function RedButton(props) {
   const { classes } = props
   return (
     <Button
+      {...props}
       to={props.to}
       component={Link}
       classes={{ root: classes.root, label: classes.label }}
