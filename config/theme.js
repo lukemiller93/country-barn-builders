@@ -16,6 +16,9 @@ const colors = {
     light: "#C6574A",
     dark: "#5D0000",
   },
+  white: {
+    base: "#fff",
+  },
 }
 
 const transition = {

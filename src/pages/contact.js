@@ -46,6 +46,9 @@ const ContactHeading = styled.div`
     height: calc(100vh - 56px);
     width: 40%;
     background: ${props => props.theme.colors.primary.dark};
+    position: fixed;
+    left: 0;
+    bottom: 0;
   }
 `
 const ContactSection = styled.section`
@@ -63,7 +66,10 @@ const FormContainer = styled.div`
   width: 90%;
   margin: 1rem auto 0;
   @media all and (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin-right: 10%;
+    position: relative;
+    margin-right: 5%;
+    width: 50%;
+    margin-top: 10rem;
   }
 `
 const contactPage = props => {
