@@ -24,7 +24,7 @@ function RedButton(props) {
   if (props.type === "submit") {
     return (
       <Button
-        {...props}
+        type={props.type}
         component={"button"}
         classes={{ root: classes.root, label: classes.label }}
       >
@@ -34,7 +34,7 @@ function RedButton(props) {
   } else {
     return (
       <Button
-        {...props}
+        type={props.type}
         to={props.to}
         component={Link}
         classes={{ root: classes.root, label: classes.label }}

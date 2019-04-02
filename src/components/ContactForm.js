@@ -60,6 +60,15 @@ const FormInput = styled.input`
   outline: none;
   transition: all 0.3s ease;
 
+  &:placeholder-shown {
+    font-size: 0.675rem;
+  }
+
+  &:-ms-input-placeholder {
+    margin: 0;
+    font-size: 0.675rem;
+  }
+
   &:focus {
     outline-color: ${props => props.theme.colors.secondary.light};
     outline-style: auto;
