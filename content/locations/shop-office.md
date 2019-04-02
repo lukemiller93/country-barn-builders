@@ -6,9 +6,9 @@ cover:
   feature_image: /assets/hero-img.jpg
 address:
   city: London
-  post_code: "40741"
+  post_code: '40741'
   state: KY
-  street: 7885 East Laurel Road
+  street: 7885 East Laurel Rd.
 phone: 606-877-1216
 business_hours:
   - day: Mon. - Fri.
@@ -16,3 +16,4 @@ business_hours:
   - day: Sat.
     hours: 8am - 12pm
 ---
+
