@@ -8,9 +8,9 @@ cover:
   feature_image: /assets/hero-img.jpg
 address:
   city: London
-  post_code: "40741"
+  post_code: '40741'
   state: KY
-  street: 580 Highway 192 W.
+  street: 565 Highway 192 W.
 phone: 606-877-1216
 business_hours:
   - day: Mon. - Thurs.
@@ -18,3 +18,4 @@ business_hours:
   - day: Fri. - Sat.
     hours: 9am - 12pm
 ---
+
