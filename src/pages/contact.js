@@ -7,7 +7,7 @@ import { Layout, ContentWrapper } from "../layouts"
 import ContactForm from "../components/ContactForm"
 
 const ContactHeading = styled.div`
-  height: 40vh;
+  height: 100%;
   width: 100%;
   background: ${props => props.theme.colors.primary.dark};
   text-align: center;
@@ -18,7 +18,8 @@ const ContactHeading = styled.div`
 
   h1,
   p {
-    width: 100%;
+    width: 90%;
+    margin: 1rem auto;
   }
 
   h1 {
