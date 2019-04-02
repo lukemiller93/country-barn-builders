@@ -42,7 +42,7 @@ const ContactHeading = styled.div`
       font-weight: 700;
     }
   }
-  @media all and (min-width: 992px) {
+  @media all and (min-width: ${props => props.theme.breakpoints.lg}) {
     height: calc(100vh - 56px);
     width: 40%;
     background: ${props => props.theme.colors.primary.dark};
@@ -52,7 +52,7 @@ const ContactSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @media all and (min-width: 992px) {
+  @media all and (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row;
   }
 `
@@ -62,7 +62,7 @@ const FormContainer = styled.div`
   align-items: center;
   width: 90%;
   margin: 1rem auto 0;
-  @media all and (min-width: 992px) {
+  @media all and (min-width: ${props => props.theme.breakpoints.lg}) {
     margin-right: 10%;
   }
 `

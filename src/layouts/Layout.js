@@ -21,10 +21,10 @@ injectGlobal`
   }
 `
 const Main = styled.main`
-  @media all and (max-width: 991px) {
+  @media all and (max-width: 995px) {
     padding-bottom: 60px;
   }
-  @media all and (min-width: 992px) {
+  @media all and (min-width: ${props => props.theme.breakpoints.lg}) {
     padding-top: 56px;
   }
 `

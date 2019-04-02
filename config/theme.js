@@ -24,7 +24,17 @@ const transition = {
   duration: "0.4s",
 }
 
+const breakpoints = {
+  xs: 0,
+  sm: `320px`,
+  iphoneX: `375px`,
+  md: `768px`,
+  lg: `996px`,
+  xl: `1192px`,
+}
+
 const theme = {
+  breakpoints,
   colors,
   transition,
   fontFamily: {

@@ -17,7 +17,7 @@ const FormContainer = styled.form`
     background: ${props => props.theme.colors.primary.light};
   }
 
-  @media all and (min-width: 996px) {
+  @media all and (min-width: ${props => props.theme.breakpoints.lg}) {
     &:focus-within {
       padding: 1.5rem;
     }
@@ -40,7 +40,7 @@ const InputLabel = styled.label`
   font-weight: 700;
   padding-left: 0.25rem;
   margin-bottom: 0.25rem;
-  @media all and (min-width: 996px) {
+  @media all and (min-width: ${props => props.theme.breakpoints.lg}) {
     margin-right: 1rem;
     margin-bottom: 0;
     padding: 0;

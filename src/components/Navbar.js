@@ -12,7 +12,7 @@ const Wrapper = styled.section`
   height: 56px;
   z-index: 1000;
 
-  @media all and (min-width: 992px) {
+  @media all and (min-width: ${props => props.theme.breakpoints.lg}) {
     position: fixed;
     top: 0;
   }
@@ -58,7 +58,7 @@ const Nav = styled.nav`
     }
   }
 
-  @media all and (max-width: 767px) {
+  @media all and (max-width: 995px) {
     display: none;
   }
 `
