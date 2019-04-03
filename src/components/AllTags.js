@@ -1,6 +1,12 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { TagLink } from "../styles/TagLink"
+import { css } from "@emotion/core"
+import Chip from "./Chip"
+
+const activeStyle = css`
+  background: ${props => props.theme.colors.secondary.light};
+`
 const AllTags = () => (
   <StaticQuery
     query={graphql`
@@ -18,9 +24,11 @@ const AllTags = () => (
     render={data => (
       <>
         {data.allMarkdownRemark.group.map((tag, index) => (
-          <li key={index} tabIndex={index + 1}>
-            <TagLink to={`/tags/${tag.fieldValue}/`}>{tag.fieldValue}</TagLink>
-          </li>
+          <Chip
+            key={index}
+            to={`tags/${tag.fieldValue}/`}
+            label={tag.fieldValue}
+          />
         ))}
       </>
     )}
@@ -28,3 +36,9 @@ const AllTags = () => (
 )
 
 export default AllTags
+//   < TagLink
+// activeClassName = "tag__active"
+// to = {`/tags/${tag.fieldValue}/`}
+//             >
+//   { tag.fieldValue }
+//             </TagLink >

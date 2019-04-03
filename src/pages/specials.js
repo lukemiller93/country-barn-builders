@@ -22,9 +22,9 @@ const specialsPage = ({ data, pageContext }) => {
         <TagWrapper>
           <ContentWrapper>
             <h3>Filter by Size</h3>
-            <ul>
+            <div className="tags__container">
               <AllTags />
-            </ul>
+            </div>
           </ContentWrapper>
         </TagWrapper>
       </Header>

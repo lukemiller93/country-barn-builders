@@ -8,25 +8,11 @@ export const TagWrapper = styled.section`
     text-align: center;
   }
 
-  ul {
-    list-style: none;
+  .tags__container {
     margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     max-width: 768px;
-  }
-
-  li {
-    position: relative;
-    background: ${props => props.theme.colors.primary.light};
-    border-radius: 2rem;
-    padding: 0.25rem 0;
-    transition: background 150ms
-      ${props => props.theme.transition.easeInOutCubic};
-    &:hover,
-    &:focus {
-      background: ${props => props.theme.colors.secondary.light};
-    }
   }
 `

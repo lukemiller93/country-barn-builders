@@ -10,6 +10,7 @@ import { ProductSection } from "../styles/ProductSection"
 import { TagWrapper } from "../styles/TagWrapper"
 import { TagLink } from "../styles/TagLink"
 import AllTags from "../components/AllTags"
+import Chip from "../components/Chip"
 
 const tagTemplate = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -22,12 +23,10 @@ const tagTemplate = ({ pageContext, data }) => {
       <TagWrapper>
         <ContentWrapper>
           <h2>{tagHeader}</h2>
-          <ul>
-            <li>
-              <TagLink to="/specials">All Sheds</TagLink>
-            </li>
+          <div className="tags__container">
+            <Chip to="/specials" label="All Sheds" />
             <AllTags />
-          </ul>
+          </div>
         </ContentWrapper>
       </TagWrapper>
       <ContentWrapper>
