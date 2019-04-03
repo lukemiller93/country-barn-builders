@@ -1,34 +1,46 @@
 import React from "react"
 import PropTypes from "prop-types"
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
 //Components
 import { Link, graphql } from "gatsby"
-import { Layout } from "../layouts"
+import { Layout, ContentWrapper } from "../layouts"
+import ProductCard from "../components/ProductCard"
+import { ProductSection } from "../styles/ProductSection"
+import { TagWrapper } from "../styles/TagWrapper"
+import { TagLink } from "../styles/TagLink"
+import AllTags from "../components/AllTags"
+
 const tagTemplate = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} shed${
-    totalCount === 1 ? "" : "s"
-  } available in ${tag} size`
+  const tagHeader = `${totalCount} ${
+    totalCount === 1 ? tag : `${tag}'s`
+  } available`
   return (
     <Layout>
-      <div>
-        <h1>{tagHeader}</h1>
-      </div>
-      <div>
-        <Link to="/specials">All Sheds</Link>
-      </div>
-      <ul>
-        {edges.map(({node}) => {
-          const {size, style, serial} = node.frontmatter
-          return (
-            <li key={node.id}>
-              <Link to={`/specials/${serial}/`}>
-                {`${size} ${style}`}
-              </Link>
+      <TagWrapper>
+        <ContentWrapper>
+          <h2>{tagHeader}</h2>
+          <ul>
+            <li>
+              <TagLink to="/specials">All Sheds</TagLink>
             </li>
-          )
-        })}
-      </ul>
+            <AllTags />
+          </ul>
+        </ContentWrapper>
+      </TagWrapper>
+      <ContentWrapper>
+        <ProductSection
+          css={css`
+            margin: 1rem auto;
+          `}
+        >
+          {edges.map(({ node }) => {
+            return <ProductCard key={node.id} shed={{ ...node.frontmatter }} />
+          })}
+        </ProductSection>
+      </ContentWrapper>
     </Layout>
   )
 }
@@ -57,7 +69,7 @@ tagTemplate.propTypes = {
 
 export default tagTemplate
 export const tagQuery = graphql`
-  query($tag: String){
+  query($tag: String) {
     allMarkdownRemark(
       filter: { frontmatter: { size: { eq: $tag } } }
       limit: 2000
@@ -67,9 +79,23 @@ export const tagQuery = graphql`
         node {
           id
           frontmatter {
+            date
             size
             style
             serial
+            price
+            options
+            gallery_image {
+              gallery_item {
+                id
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+              alt_text
+            }
           }
         }
       }

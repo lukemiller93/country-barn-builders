@@ -22,6 +22,10 @@ const StyledLink = styled(Link)`
 `
 const BuildingInfo = styled.p`
   margin-bottom: 0.25rem;
+
+  span {
+    font-weight: 700;
+  }
 `
 
 const styles = {
@@ -63,13 +67,19 @@ function ProductCard(props) {
             </BuildingInfo>
             <BuildingInfo>
               <span>Price: </span>
-              {`$${price.toFixed(2)}`}
+              {`$${price.toFixed(2)} + tax`}
             </BuildingInfo>
           </CardContent>
         </StyledLink>
       </CardActionArea>
       <CardActions>
-        <Button size="small" className={classes.buttonColor} color="inherit">
+        <Button
+          size="small"
+          component={Link}
+          to={`/specials/${serial}`}
+          className={classes.buttonColor}
+          color="inherit"
+        >
           More Info
         </Button>
       </CardActions>
