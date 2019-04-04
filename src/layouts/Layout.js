@@ -57,22 +57,24 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <>
         <Navbar />
-        <Main>{children}</Main>
-        <ContentWrapper>
-          <Footer>
-            {" "}
-            <small>
-              © {new Date().getFullYear()}, Watson Barn Rentals, LLC
-            </small>
-            <small>
-              Designed &amp; built by{" "}
-              <a href="https://www.linkedin.com/in/luke-miller-b4951b145/">
-                Luke Miller
-              </a>
-            </small>
-          </Footer>
-        </ContentWrapper>
-        <Breakpoint small down>
+        <Main>
+          {children}
+          <ContentWrapper>
+            <Footer>
+              {" "}
+              <small>
+                © {new Date().getFullYear()}, Watson Barn Rentals, LLC
+              </small>
+              <small>
+                Designed &amp; built by{" "}
+                <a href="https://www.linkedin.com/in/luke-miller-b4951b145/">
+                  Luke Miller
+                </a>
+              </small>
+            </Footer>
+          </ContentWrapper>
+        </Main>
+        <Breakpoint medium down>
           <BottomNavigationBar />
         </Breakpoint>
       </>
