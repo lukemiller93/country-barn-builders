@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   repo: lukemiller93/country-barn-builders
 
+publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: assets
 site_url: https://practical-mestorf-9c8a21.netlify.com
