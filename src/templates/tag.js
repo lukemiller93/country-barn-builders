@@ -1,14 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 //Components
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { Layout, ContentWrapper } from "../layouts"
 import ProductCard from "../components/ProductCard"
 import { ProductSection } from "../styles/ProductSection"
 import { TagWrapper } from "../styles/TagWrapper"
-import { TagLink } from "../styles/TagLink"
 import AllTags from "../components/AllTags"
 import Chip from "../components/Chip"
 
