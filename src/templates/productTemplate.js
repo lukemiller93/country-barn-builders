@@ -1,6 +1,8 @@
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
+import ChevronLeft from "@material-ui/icons/ChevronLeft"
+import ChevronRight from "@material-ui/icons/ChevronRight"
 import { Layout, ContentWrapper } from "../layouts"
 import styled from "@emotion/styled"
 
@@ -88,6 +90,8 @@ const PaginationBar = styled.div`
   border-top: 1px solid ${props => props.theme.colors.primary.dark};
   border-bottom: 1px solid ${props => props.theme.colors.primary.dark};
   a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: ${props => props.theme.colors.black.base};
   }
@@ -176,14 +180,16 @@ const productTemplate = ({ data, pageContext }, props) => {
         </ProductInfo>
         <PaginationBar>
           {prev && (
-            <Link to={`/specials/${prev.frontmatter.serial}/`}>{`${
-              prev.frontmatter.size
-            } ${prev.frontmatter.style}`}</Link>
+            <Link to={`/specials/${prev.frontmatter.serial}/`}>
+              <ChevronLeft />
+              {`${prev.frontmatter.size} ${prev.frontmatter.style}`}
+            </Link>
           )}
           {next && (
-            <Link to={`/specials/${next.frontmatter.serial}/`}>{`${
-              next.frontmatter.size
-            } ${next.frontmatter.style}`}</Link>
+            <Link to={`/specials/${next.frontmatter.serial}/`}>
+              {`${next.frontmatter.size} ${next.frontmatter.style}`}{" "}
+              <ChevronRight />
+            </Link>
           )}
         </PaginationBar>
       </ContentWrapper>

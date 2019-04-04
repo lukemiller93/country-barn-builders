@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import React from "react"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
 
 //icons
 import EmailOutlined from "@material-ui/icons/EmailOutlined"

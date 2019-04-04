@@ -17,6 +17,7 @@ exports.createPages = ({ actions, graphql }) => {
     {
       allMarkdownRemark(
         filter: { frontmatter: { template: { eq: "product" } } }
+        sort: { fields: [frontmatter___size], order: ASC }
         limit: 1000
       ) {
         edges {
@@ -40,9 +41,14 @@ exports.createPages = ({ actions, graphql }) => {
 
     // create product pages
     products.forEach(({ node }, index) => {
-      const prev = index === 0 ? null : products[index - 1].node
+      const prev =
+        index === 0
+          ? products[products.length - 1].node
+          : products[index - 1].node
       const next =
-        index === products.length - 1 ? null : products[index + 1].node
+        index === products.length - 1
+          ? products[0].node
+          : products[index + 1].node
       createPage({
         path: `/specials/${node.frontmatter.serial}/`,
         component: productTemplate,
