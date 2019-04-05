@@ -18,26 +18,34 @@ const tagTemplate = ({ pageContext, data }) => {
   } available`
   return (
     <Layout>
-      {(totalCount > 0) ? (<TagWrapper>
-        <ContentWrapper>
-          <h2>{tagHeader}</h2>
-          <div className="tags__container">
-            <Chip to="/specials" label="All Sheds" />
-            <AllTags />
-          </div>
-        </ContentWrapper>
-      </TagWrapper>
-      <ContentWrapper>
-        <ProductSection
-          css={css`
-            margin: 1rem auto;
-          `}
-        >
-          {edges.map(({ node }) => {
-            return <ProductCard key={node.id} shed={{ ...node.frontmatter }} />
-          })}
-        </ProductSection>
-      </ContentWrapper>): (<h5>No sizes to filter by...</h5>)}
+      {totalCount > 0 ? (
+        <>
+          <TagWrapper>
+            <ContentWrapper>
+              <h2>{tagHeader}</h2>
+              <div className="tags__container">
+                <Chip to="/specials" label="All Sheds" />
+                <AllTags />
+              </div>
+            </ContentWrapper>
+          </TagWrapper>
+          <ContentWrapper>
+            <ProductSection
+              css={css`
+                margin: 1rem auto;
+              `}
+            >
+              {edges.map(({ node }) => {
+                return (
+                  <ProductCard key={node.id} shed={{ ...node.frontmatter }} />
+                )
+              })}
+            </ProductSection>
+          </ContentWrapper>
+        </>
+      ) : (
+        <h5>No sizes to filter by...</h5>
+      )}
     </Layout>
   )
 }
