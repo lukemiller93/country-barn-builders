@@ -18,7 +18,7 @@ const tagTemplate = ({ pageContext, data }) => {
   } available`
   return (
     <Layout>
-      <TagWrapper>
+      {(totalCount > 0) ? (<TagWrapper>
         <ContentWrapper>
           <h2>{tagHeader}</h2>
           <div className="tags__container">
@@ -37,7 +37,7 @@ const tagTemplate = ({ pageContext, data }) => {
             return <ProductCard key={node.id} shed={{ ...node.frontmatter }} />
           })}
         </ProductSection>
-      </ContentWrapper>
+      </ContentWrapper>): (<h5>No sizes to filter by...</h5>)}
     </Layout>
   )
 }

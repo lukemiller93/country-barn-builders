@@ -38,47 +38,48 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const products = result.data.allMarkdownRemark.edges
-
-    // create product pages
-    products.forEach(({ node }, index) => {
-      const prev =
-        index === 0
-          ? products[products.length - 1].node
-          : products[index - 1].node
-      const next =
-        index === products.length - 1
-          ? products[0].node
-          : products[index + 1].node
-      createPage({
-        path: `/specials/${node.frontmatter.serial}/`,
-        component: productTemplate,
-        context: {
-          id: node.id,
-          prev,
-          next,
-        }, // additional data can be passed via context
+    if (products.length >= 1) {
+      // create product pages
+      products.forEach(({ node }, index) => {
+        const prev =
+          index === 0
+            ? products[products.length - 1].node
+            : products[index - 1].node
+        const next =
+          index === products.length - 1
+            ? products[0].node
+            : products[index + 1].node
+        createPage({
+          path: `/specials/${node.frontmatter.serial}/`,
+          component: productTemplate,
+          context: {
+            id: node.id,
+            prev,
+            next,
+          }, // additional data can be passed via context
+        })
       })
-    })
 
-    // Tag pages:
-    let tags = []
-    // Iterate through each product, putting all found sizes into `tags`
-    _.each(products, edge => {
-      if (_.get(edge, "node.frontmatter.size")) {
-        tags = tags.concat(edge.node.frontmatter.size)
-      }
-    })
-    // Eliminate duplicate tags
-    tags = _.uniq(tags)
-    // Make tag pages
-    tags.forEach(tag => {
-      createPage({
-        path: `/tags/${tag}/`,
-        component: tagPosts,
-        context: {
-          tag,
-        },
+      // Tag pages:
+      let tags = []
+      // Iterate through each product, putting all found sizes into `tags`
+      _.each(products, edge => {
+        if (_.get(edge, "node.frontmatter.size")) {
+          tags = tags.concat(edge.node.frontmatter.size)
+        }
       })
-    })
+      // Eliminate duplicate tags
+      tags = _.uniq(tags)
+      // Make tag pages
+      tags.forEach(tag => {
+        createPage({
+          path: `/tags/${tag}/`,
+          component: tagPosts,
+          context: {
+            tag,
+          },
+        })
+      })
+    }
   })
 }

@@ -12,7 +12,6 @@ const Header = styled.section`
 `
 const specialsPage = ({ data, pageContext }) => {
   const specials = data.allMarkdownRemark.edges
-  // const tags = data.tags.group
   return (
     <Layout>
       <Header>
@@ -29,11 +28,17 @@ const specialsPage = ({ data, pageContext }) => {
         </TagWrapper>
       </Header>
       <ContentWrapper>
-        <ProductSection>
-          {specials.map(({ node }) => {
-            return <ProductCard shed={{ ...node.frontmatter }} key={node.id} />
-          })}
-        </ProductSection>
+        {data.allMarkdownRemark.totalCount > 0 ? (
+          <ProductSection>
+            {specials.map(({ node }) => {
+              return (
+                <ProductCard shed={{ ...node.frontmatter }} key={node.id} />
+              )
+            })}
+          </ProductSection>
+        ) : (
+          <h5>No specials currently available...</h5>
+        )}
       </ContentWrapper>
     </Layout>
   )

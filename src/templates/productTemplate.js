@@ -113,20 +113,18 @@ const productTemplate = ({ data, pageContext }, props) => {
   return (
     <Layout>
       <ContentWrapper>
-        <ProductInfo>
+        {(size && size !== null) ? (<ProductInfo>
           <ProductGallery>
-            {isOpen && (
-              <FullSizeImage>
-                <Image
-                  key={gallery_image[activeIndex].gallery_item.id}
-                  fluid={
-                    gallery_image[activeIndex].gallery_item.childImageSharp
-                      .fluid
-                  }
-                  alt={gallery_image[activeIndex].alt_text}
-                />
-              </FullSizeImage>
-            )}
+            <FullSizeImage>
+              <Image
+                key={gallery_image[activeIndex].gallery_item.id}
+                fluid={
+                  gallery_image[activeIndex].gallery_item.childImageSharp.fluid
+                }
+                alt={gallery_image[activeIndex].alt_text}
+              />
+            </FullSizeImage>
+
             <ImageThumbnails>
               {gallery_image.map((item, index) => {
                 const { gallery_item, alt_text } = item
@@ -191,7 +189,7 @@ const productTemplate = ({ data, pageContext }, props) => {
               <ChevronRight />
             </Link>
           )}
-        </PaginationBar>
+        </PaginationBar>): (<h5>No specials currently available...</h5>)}
       </ContentWrapper>
     </Layout>
   )
