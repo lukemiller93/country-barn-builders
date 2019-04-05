@@ -113,83 +113,90 @@ const productTemplate = ({ data, pageContext }, props) => {
   return (
     <Layout>
       <ContentWrapper>
-        {(size && size !== null) ? (<ProductInfo>
-          <ProductGallery>
-            <FullSizeImage>
-              <Image
-                key={gallery_image[activeIndex].gallery_item.id}
-                fluid={
-                  gallery_image[activeIndex].gallery_item.childImageSharp.fluid
-                }
-                alt={gallery_image[activeIndex].alt_text}
-              />
-            </FullSizeImage>
+        {size && size !== null ? (
+          <>
+            <ProductInfo>
+              <ProductGallery>
+                <FullSizeImage>
+                  <Image
+                    key={gallery_image[activeIndex].gallery_item.id}
+                    fluid={
+                      gallery_image[activeIndex].gallery_item.childImageSharp
+                        .fluid
+                    }
+                    alt={gallery_image[activeIndex].alt_text}
+                  />
+                </FullSizeImage>
 
-            <ImageThumbnails>
-              {gallery_image.map((item, index) => {
-                const { gallery_item, alt_text } = item
-                return (
-                  <ClickableDiv
-                    tabIndex="0"
-                    key={index}
-                    onClick={e => {
-                      setActiveIndex(index)
-                    }}
-                    onKeyDown={e => {
-                      if (e.keyCode === 13) {
-                        setActiveIndex(index)
-                      }
-                    }}
-                  >
-                    <Image
-                      fixed={gallery_item.childImageSharp.fixed}
-                      alt={alt_text}
-                    />
-                  </ClickableDiv>
-                )
-              })}
-            </ImageThumbnails>
-          </ProductGallery>
-          <ProductDetails>
-            <ContentWrapper>
-              <H1>
-                {size} {style}
-              </H1>
-              <ProductInfoP>
-                <span>Serial:</span> {serial}
-              </ProductInfoP>
-              <ProductInfoP>
-                <span>Price:</span> {`$${price.toFixed(2)} + tax`}
-              </ProductInfoP>
-              <ProductInfoP>
-                <span>Description:</span> {options}
-              </ProductInfoP>
-              <ProductInfoP>
-                <span>Call now for more info!</span>{" "}
-                <a href={`tel:+1-606-877-1216`}>606-877-1216</a>
-              </ProductInfoP>
-              <ProductInfoP>
-                <small>
-                  <em>Free delivery, blocks, and setup within 50 miles.</em>
-                </small>
-              </ProductInfoP>
-            </ContentWrapper>
-          </ProductDetails>
-        </ProductInfo>
-        <PaginationBar>
-          {prev && (
-            <Link to={`/specials/${prev.frontmatter.serial}/`}>
-              <ChevronLeft />
-              {`${prev.frontmatter.size} ${prev.frontmatter.style}`}
-            </Link>
-          )}
-          {next && (
-            <Link to={`/specials/${next.frontmatter.serial}/`}>
-              {`${next.frontmatter.size} ${next.frontmatter.style}`}{" "}
-              <ChevronRight />
-            </Link>
-          )}
-        </PaginationBar>): (<h5>No specials currently available...</h5>)}
+                <ImageThumbnails>
+                  {gallery_image.map((item, index) => {
+                    const { gallery_item, alt_text } = item
+                    return (
+                      <ClickableDiv
+                        tabIndex="0"
+                        key={index}
+                        onClick={e => {
+                          setActiveIndex(index)
+                        }}
+                        onKeyDown={e => {
+                          if (e.keyCode === 13) {
+                            setActiveIndex(index)
+                          }
+                        }}
+                      >
+                        <Image
+                          fixed={gallery_item.childImageSharp.fixed}
+                          alt={alt_text}
+                        />
+                      </ClickableDiv>
+                    )
+                  })}
+                </ImageThumbnails>
+              </ProductGallery>
+              <ProductDetails>
+                <ContentWrapper>
+                  <H1>
+                    {size} {style}
+                  </H1>
+                  <ProductInfoP>
+                    <span>Serial:</span> {serial}
+                  </ProductInfoP>
+                  <ProductInfoP>
+                    <span>Price:</span> {`$${price.toFixed(2)} + tax`}
+                  </ProductInfoP>
+                  <ProductInfoP>
+                    <span>Description:</span> {options}
+                  </ProductInfoP>
+                  <ProductInfoP>
+                    <span>Call now for more info!</span>{" "}
+                    <a href={`tel:+1-606-877-1216`}>606-877-1216</a>
+                  </ProductInfoP>
+                  <ProductInfoP>
+                    <small>
+                      <em>Free delivery, blocks, and setup within 50 miles.</em>
+                    </small>
+                  </ProductInfoP>
+                </ContentWrapper>
+              </ProductDetails>
+            </ProductInfo>
+            <PaginationBar>
+              {prev && (
+                <Link to={`/specials/${prev.frontmatter.serial}/`}>
+                  <ChevronLeft />
+                  {`${prev.frontmatter.size} ${prev.frontmatter.style}`}
+                </Link>
+              )}
+              {next && (
+                <Link to={`/specials/${next.frontmatter.serial}/`}>
+                  {`${next.frontmatter.size} ${next.frontmatter.style}`}{" "}
+                  <ChevronRight />
+                </Link>
+              )}
+            </PaginationBar>
+          </>
+        ) : (
+          <h5>No specials currently available...</h5>
+        )}
       </ContentWrapper>
     </Layout>
   )
