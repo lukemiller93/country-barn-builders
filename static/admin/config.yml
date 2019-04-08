@@ -74,7 +74,12 @@ collections:
           widget: "date",
           format: "MMM Do YY",
         }
-      - { name: "size", label: "Building Size", widget: "string" }
+      - {
+          name: "size",
+          label: "Building Size",
+          widget: "string",
+          pattern: ['^\s*(\S(.*\S)?)\s*$', "Must not contain any spaces"],
+        }
       - { name: "style", label: "Building Style", widget: "string" }
       - { name: "serial", label: "Serial Number", widget: "string" }
       - { name: "price", label: "Sale Price", widget: "number" }
