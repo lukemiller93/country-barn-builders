@@ -78,7 +78,8 @@ collections:
           name: "size",
           label: "Building Size",
           widget: "string",
-          pattern: ['^\s*(\S(.*\S)?)\s*$', "Must not contain any spaces"],
+          required: true,
+          pattern: [^\s*(\S(.*\S)?)\s*$, "Must not contain any spaces"],
         }
       - { name: "style", label: "Building Style", widget: "string" }
       - { name: "serial", label: "Serial Number", widget: "string" }

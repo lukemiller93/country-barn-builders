@@ -10,6 +10,7 @@ const styles = theme => ({
   colorPrimary: {
     background: `white`,
     color: `#222526`,
+    margin: `.5rem .25rem`,
     "&:hover": {
       background: `#C6574A`,
     },
