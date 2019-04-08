@@ -23,13 +23,16 @@ const AllTags = () => (
     `}
     render={data => (
       <>
-        {data.allMarkdownRemark.group.map((tag, index) => (
-          <Chip
-            key={index}
-            to={`tags/${tag.fieldValue}/`}
-            label={tag.fieldValue}
-          />
-        ))}
+        {data.allMarkdownRemark.group.map((tag, index) => {
+          const trimmedValue = tag.fieldValue.trim()
+          return (
+            <Chip
+              key={index}
+              to={`tags/${trimmedValue}/`}
+              label={trimmedValue}
+            />
+          )
+        })}
       </>
     )}
   />
