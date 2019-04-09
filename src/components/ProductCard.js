@@ -46,13 +46,16 @@ const styles = {
   },
 }
 
-function ProductCard(props) {
-  const { classes, shed } = props
+function ProductCard(props, { location }) {
+  const { classes, shed, backNavigationPath } = props
   const { size, style, serial, price, gallery_image, date } = shed
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <StyledLink to={`/specials/${serial}`}>
+        <StyledLink
+          to={`/specials/${serial}`}
+          state={{ navigationPath: backNavigationPath }}
+        >
           <Image
             fluid={gallery_image[0].gallery_item.childImageSharp.fluid}
             alt={gallery_image[0].alt_text}
@@ -76,6 +79,7 @@ function ProductCard(props) {
         <Button
           size="small"
           component={Link}
+          state={{ navigationPath: backNavigationPath }}
           to={`/specials/${serial}`}
           className={classes.buttonColor}
           color="inherit"

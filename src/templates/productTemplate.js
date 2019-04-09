@@ -6,10 +6,16 @@ import ChevronRight from "@material-ui/icons/ChevronRight"
 import { Layout, ContentWrapper } from "../layouts"
 import styled from "@emotion/styled"
 
+const StyledLink = styled(Link)`
+  margin: 1rem auto;
+  flex-basis: 100%;
+  color: ${props => props.theme.colors.secondary.base};
+  font-weight: 700;
+`
 const ProductInfo = styled.section`
   height: 100%;
   width: 100%;
-  margin: 2rem auto 1rem;
+  margin: 1rem auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -29,8 +35,13 @@ const FullSizeImage = styled.div``
 const ImageThumbnails = styled.div`
   margin: 1rem 0;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+
+  @media all and (min-width: ${props => props.theme.breakpoints.md}) {
+    justify-content: flex-start;
+  }
 `
 const ClickableDiv = styled.div`
   cursor: pointer;
@@ -93,11 +104,13 @@ const PaginationBar = styled.div`
     display: flex;
     align-items: center;
     text-decoration: none;
+    max-width: 50%;
+    text-align: center;
     color: ${props => props.theme.colors.black.base};
   }
 `
 
-const productTemplate = ({ data, pageContext }, props) => {
+const productTemplate = ({ data, pageContext, location }, props) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isOpen, setIsOpen] = useState(true)
   const { next, prev } = pageContext
@@ -109,13 +122,19 @@ const productTemplate = ({ data, pageContext }, props) => {
     options,
     gallery_image,
   } = data.markdownRemark.frontmatter
-
   return (
     <Layout>
       <ContentWrapper>
         {size && size !== null ? (
           <>
             <ProductInfo>
+              {location.state.navigationPath !== undefined ? (
+                <StyledLink to={location.state.navigationPath}>
+                  Back to all {`${size}'s`}
+                </StyledLink>
+              ) : (
+                <StyledLink to={`/specials`}>Back to all sheds</StyledLink>
+              )}
               <ProductGallery>
                 <FullSizeImage>
                   <Image
@@ -179,20 +198,6 @@ const productTemplate = ({ data, pageContext }, props) => {
                 </ContentWrapper>
               </ProductDetails>
             </ProductInfo>
-            <PaginationBar>
-              {prev && (
-                <Link to={`/specials/${prev.frontmatter.serial}/`}>
-                  <ChevronLeft />
-                  {`${prev.frontmatter.size} ${prev.frontmatter.style}`}
-                </Link>
-              )}
-              {next && (
-                <Link to={`/specials/${next.frontmatter.serial}/`}>
-                  {`${next.frontmatter.size} ${next.frontmatter.style}`}{" "}
-                  <ChevronRight />
-                </Link>
-              )}
-            </PaginationBar>
           </>
         ) : (
           <h5>No specials currently available...</h5>
