@@ -3,8 +3,8 @@ template: location
 title: London Sales Office
 cover:
   alt_text: >-
-    A Clay, White and Black colored portable office in the foreground with a row
-    of barns in the background at Country Barn Builders' London, KY Sales office
+    a row of portable storage sheds from the street at Country Barn Builders'
+    London, KY Sales office
   feature_image: /assets/hero-img.jpg
 address:
   city: London
