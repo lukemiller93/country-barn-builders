@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { withStyles } from "@material-ui/core/styles"
 import Chip from "@material-ui/core/Chip"
 import { Link, navigate } from "gatsby"
-import { css } from "@emotion/core"
 
 const styles = theme => ({
   root: {},
@@ -21,7 +20,7 @@ const styles = theme => ({
 })
 
 function CustomChip(props) {
-  const { classes, tagValue } = props
+  const { classes } = props
   return (
     <>
       <Chip

@@ -1,8 +1,6 @@
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import React, { useState } from "react"
-import ChevronLeft from "@material-ui/icons/ChevronLeft"
-import ChevronRight from "@material-ui/icons/ChevronRight"
 import { Layout, ContentWrapper } from "../layouts"
 import Seo from "../components/Seo"
 import styled from "@emotion/styled"
@@ -91,23 +89,6 @@ const ProductInfoP = styled.p`
   a {
     text-decoration: none;
     color: ${props => props.theme.colors.secondary.base};
-  }
-`
-const PaginationBar = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  margin-bottom: 0.5rem;
-  border-top: 1px solid ${props => props.theme.colors.primary.dark};
-  border-bottom: 1px solid ${props => props.theme.colors.primary.dark};
-  a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    max-width: 50%;
-    text-align: center;
-    color: ${props => props.theme.colors.black.base};
   }
 `
 

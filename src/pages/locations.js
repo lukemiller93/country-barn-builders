@@ -240,7 +240,6 @@ const Locations = ({ data, location }) => {
         {data.allMarkdownRemark.edges.map(({ node }) => {
           const {
             title,
-            id,
             cover,
             address,
             phone,

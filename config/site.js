@@ -7,7 +7,7 @@ module.exports = {
   siteLanguage: "en",
   logo: "/images/company-logo.png",
   banner: "/images/london-lot.jpg",
-  favicon: "/images/favicon.png",
+  favicon: "src/images/favicon.png",
   shortName: "Country Barn",
   author: `Luke`,
   themeColor: `#F9F5E3`,
