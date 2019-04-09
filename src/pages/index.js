@@ -42,7 +42,7 @@ const IndexPage = ({ data }, props) => (
   <Layout>
     <Image
       fluid={data.heroImg.childImageSharp.fluid}
-      alt="Country Barn Builders London, KY sales office"
+      alt="Country Barn Builders London, KY shop"
     />
     <QualitySection>
       <ContentWrapper>
@@ -104,7 +104,7 @@ export default IndexPage
 
 export const heroImgQuery = graphql`
   query {
-    heroImg: file(relativePath: { eq: "london-lot.jpg" }) {
+    heroImg: file(relativePath: { eq: "shop-lot.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 2000, cropFocus: CENTER, maxHeight: 750) {
           ...GatsbyImageSharpFluid_withWebp
