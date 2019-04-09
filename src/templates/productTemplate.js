@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import ChevronLeft from "@material-ui/icons/ChevronLeft"
 import ChevronRight from "@material-ui/icons/ChevronRight"
 import { Layout, ContentWrapper } from "../layouts"
+import Seo from "../components/Seo"
 import styled from "@emotion/styled"
 
 const StyledLink = styled(Link)`
@@ -110,7 +111,7 @@ const PaginationBar = styled.div`
   }
 `
 
-const productTemplate = ({ data }) => {
+const productTemplate = ({ data, location }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const {
     size,
@@ -122,6 +123,13 @@ const productTemplate = ({ data }) => {
   } = data.markdownRemark.frontmatter
   return (
     <Layout>
+      <Seo
+        title={`${size} ${style} - ${serial}`}
+        desc={`${size} ${style}. ${options}. ${price.toFixed(2)} + tax.`}
+        pathname={location.pathname}
+        banner={gallery_image[0].publicURL}
+        article
+      />
       <ContentWrapper>
         {size && size !== null ? (
           <>
@@ -218,6 +226,7 @@ export const pageQuery = graphql`
         options
         gallery_image {
           gallery_item {
+            publicURL
             id
             childImageSharp {
               fluid(maxWidth: 840) {

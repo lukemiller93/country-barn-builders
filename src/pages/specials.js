@@ -6,14 +6,20 @@ import ProductCard from "../components/ProductCard"
 import { ProductSection } from "../styles/ProductSection"
 import { TagWrapper } from "../styles/TagWrapper"
 import AllTags from "../components/AllTags"
+import Seo from "../components/Seo"
 
 const Header = styled.section`
   margin: 1rem 0;
 `
-const specialsPage = ({ data }) => {
+const specialsPage = ({ data, location }) => {
   const specials = data.allMarkdownRemark.edges
   return (
     <Layout>
+      <Seo
+        title={`Specials & Promotions`}
+        desc={`Checkout our special sale through Watson Barn Rentals, LLC on a recent buyout of a large stock of pre-owned sheds. You’ll be sure to find a great deal on a perfect shed for you!`}
+        pathname={location.pathname}
+      />
       <Header>
         <ContentWrapper>
           <h1>Specials</h1>

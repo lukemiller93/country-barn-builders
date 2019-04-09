@@ -11,6 +11,7 @@ import PlaceOutlined from "@material-ui/icons/PlaceOutlined"
 
 //components
 import { Layout, ContentWrapper } from "../layouts"
+import Seo from "../components/Seo"
 
 const H1 = styled.h1`
   padding: 1rem 0;
@@ -204,9 +205,15 @@ const CardButton = styled.a`
   }
 `
 
-const Locations = ({ data }) => {
+const Locations = ({ data, location }) => {
   return (
     <Layout>
+      <Seo
+        title={`Sales Locations`}
+        desc={`We specialize in portable storage buildings and can create standard as well as highly customizable custom solutions for your needs. For information on building styles and pricing, please contact our sales office at (606) 877-1216 or stop by one of our lots today.`}
+        pathname={location.pathname}
+      />
+
       <ContentWrapper>
         <H1>Locations</H1>
       </ContentWrapper>

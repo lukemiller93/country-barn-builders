@@ -5,7 +5,7 @@ import PlaceOutlined from "@material-ui/icons/PlaceOutlined"
 
 import { Layout, ContentWrapper } from "../layouts"
 import ContactForm from "../components/ContactForm"
-
+import Seo from "../components/Seo"
 const ContactHeading = styled.div`
   height: 100%;
   width: 100%;
@@ -75,6 +75,11 @@ const FormContainer = styled.div`
 const contactPage = props => {
   return (
     <Layout>
+      <Seo
+        title={`Contact Us`}
+        pathname={props.location.pathname}
+        desc={`Send us a message today! We'd love to hear from you!`}
+      />
       <ContactSection>
         <ContactHeading>
           <ContentWrapper>

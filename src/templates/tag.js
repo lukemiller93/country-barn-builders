@@ -9,8 +9,9 @@ import { ProductSection } from "../styles/ProductSection"
 import { TagWrapper } from "../styles/TagWrapper"
 import AllTags from "../components/AllTags"
 import Chip from "../components/Chip"
+import Seo from "../components/Seo"
 
-const tagTemplate = ({ pageContext, data }) => {
+const tagTemplate = ({ pageContext, data, location }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} ${
@@ -19,6 +20,7 @@ const tagTemplate = ({ pageContext, data }) => {
 
   return (
     <Layout>
+      <Seo title={`${tag} Sheds`} pathname={location.pathname} />
       {totalCount > 0 ? (
         <>
           <TagWrapper>

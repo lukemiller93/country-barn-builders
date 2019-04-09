@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import React from "react"
 import RedButton from "../components/RedButton"
+import Seo from "../components/Seo"
 import { ContentWrapper, Layout } from "../layouts"
 const QualitySection = styled.section`
   background: white;
@@ -38,8 +39,12 @@ const RtoCard = styled.aside`
   }
 `
 
-const IndexPage = ({ data }, props) => (
+const IndexPage = ({ data, location }, props) => (
   <Layout>
+    <Seo
+      title={`Portable Storage Buildings & Rent-to-Own near London, KY`}
+      pathname={location.pathname}
+    />
     <Image
       fluid={data.heroImg.childImageSharp.fluid}
       alt="Country Barn Builders London, KY shop"
