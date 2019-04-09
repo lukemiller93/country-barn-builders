@@ -110,10 +110,8 @@ const PaginationBar = styled.div`
   }
 `
 
-const productTemplate = ({ data, pageContext, location }, props) => {
+const productTemplate = ({ data }, props) => {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [isOpen, setIsOpen] = useState(true)
-  const { next, prev } = pageContext
   const {
     size,
     style,
@@ -128,8 +126,8 @@ const productTemplate = ({ data, pageContext, location }, props) => {
         {size && size !== null ? (
           <>
             <ProductInfo>
-              {location.state.navigationPath ? (
-                <StyledLink to={location.state.navigationPath}>
+              {props.location.state.navigationPath ? (
+                <StyledLink to={props.location.state.navigationPath}>
                   Back to all {`${size}'s`}
                 </StyledLink>
               ) : (
