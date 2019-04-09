@@ -126,6 +126,14 @@ const productTemplate = ({ data }) => {
         {size && size !== null ? (
           <>
             <ProductInfo>
+              <StyledLink
+                onClick={e => {
+                  e.preventDefault()
+                  window.history.back()
+                }}
+              >
+                Go back to all sheds
+              </StyledLink>
               <ProductGallery>
                 <FullSizeImage>
                   <Image
