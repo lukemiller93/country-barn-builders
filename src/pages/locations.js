@@ -5,7 +5,6 @@ import React from "react"
 import styled from "@emotion/styled"
 
 //icons
-import EmailOutlined from "@material-ui/icons/EmailOutlined"
 import AccessTimeOutlined from "@material-ui/icons/AccessTimeOutlined"
 import PhoneInTalk from "@material-ui/icons/PhoneInTalk"
 import PlaceOutlined from "@material-ui/icons/PlaceOutlined"

@@ -36,6 +36,7 @@ const Footer = styled.footer`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  width: 100%;
 
   a {
     color: ${props => props.theme.colors.secondary.base};

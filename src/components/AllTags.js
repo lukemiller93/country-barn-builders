@@ -1,12 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import { TagLink } from "../styles/TagLink"
-import { css } from "@emotion/core"
 import Chip from "./Chip"
 
-const activeStyle = css`
-  background: ${props => props.theme.colors.secondary.light};
-`
 const AllTags = () => (
   <StaticQuery
     query={graphql`
@@ -24,12 +19,11 @@ const AllTags = () => (
     render={data => (
       <>
         {data.allMarkdownRemark.group.map((tag, index) => {
-          const trimmedValue = tag.fieldValue.trim()
           return (
             <Chip
               key={index}
-              to={`tags/${trimmedValue}/`}
-              label={trimmedValue}
+              to={`tags/${tag.fieldValue}/`}
+              label={tag.fieldValue}
             />
           )
         })}

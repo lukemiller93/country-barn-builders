@@ -5,7 +5,6 @@ import Card from "@material-ui/core/Card"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
 import Button from "@material-ui/core/Button"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
@@ -48,7 +47,7 @@ const styles = {
 
 function ProductCard(props, { location }) {
   const { classes, shed, backNavigationPath } = props
-  const { size, style, serial, price, gallery_image, date } = shed
+  const { size, style, serial, price, gallery_image } = shed
   return (
     <Card className={classes.card}>
       <CardActionArea>
