@@ -5,7 +5,7 @@ cover:
   alt_text: >-
     a row of portable storage sheds from the street at Country Barn Builders'
     London, KY Sales office
-  feature_image: /assets/hero-img.jpg
+  feature_image: /assets/london-lot.jpg
 address:
   city: London
   post_code: '40741'
