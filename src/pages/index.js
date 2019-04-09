@@ -104,7 +104,7 @@ export default IndexPage
 
 export const heroImgQuery = graphql`
   query {
-    heroImg: file(relativePath: { eq: "hero-img.jpg" }) {
+    heroImg: file(relativePath: { eq: "london-lot.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 2000, cropFocus: CENTER, maxHeight: 750) {
           ...GatsbyImageSharpFluid_withWebp
