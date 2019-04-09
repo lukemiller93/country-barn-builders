@@ -3,7 +3,7 @@ template: location
 title: Shop Office
 cover:
   alt_text: shop street view for Country Barn Builders
-  feature_image: /assets/london-lot.jpg
+  feature_image: /assets/shop-lot.jpg
 address:
   city: London
   post_code: '40741'
