@@ -129,9 +129,6 @@ const productTemplate = ({ data, location }) => {
               <StyledLink to={location.state.navigationPath}>
                 Back to all {`${size}'s`}
               </StyledLink>
-              {/* ) : (
-                <StyledLink to={`/specials`}>Back to all sheds</StyledLink>
-              )} */}
               <ProductGallery>
                 <FullSizeImage>
                   <Image

@@ -34,6 +34,7 @@ const breakpoints = {
   md: `768px`,
   lg: `996px`,
   xl: `1192px`,
+  maxWidth: `1680px`,
 }
 
 const theme = {

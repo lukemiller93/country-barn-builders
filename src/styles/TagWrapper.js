@@ -13,6 +13,6 @@ export const TagWrapper = styled.section`
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    max-width: 768px;
+    max-width: calc(${props => props.theme.breakpoints.maxWidth} - 5rem);
   }
 `
