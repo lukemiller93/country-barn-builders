@@ -10,7 +10,7 @@ import AllTags from "../components/AllTags"
 const Header = styled.section`
   margin: 1rem 0;
 `
-const specialsPage = ({ data, location }) => {
+const specialsPage = ({ data }) => {
   const specials = data.allMarkdownRemark.edges
   return (
     <Layout>
@@ -32,11 +32,7 @@ const specialsPage = ({ data, location }) => {
           <ProductSection>
             {specials.map(({ node }) => {
               return (
-                <ProductCard
-                  backNavigationPath={location.pathname}
-                  shed={{ ...node.frontmatter }}
-                  key={node.id}
-                />
+                <ProductCard shed={{ ...node.frontmatter }} key={node.id} />
               )
             })}
           </ProductSection>

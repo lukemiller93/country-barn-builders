@@ -110,7 +110,7 @@ const PaginationBar = styled.div`
   }
 `
 
-const productTemplate = ({ data, location }) => {
+const productTemplate = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const {
     size,
@@ -126,9 +126,6 @@ const productTemplate = ({ data, location }) => {
         {size && size !== null ? (
           <>
             <ProductInfo>
-              <StyledLink to={location.state.navigationPath}>
-                Back to all {`${size}'s`}
-              </StyledLink>
               <ProductGallery>
                 <FullSizeImage>
                   <Image

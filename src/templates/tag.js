@@ -10,7 +10,7 @@ import { TagWrapper } from "../styles/TagWrapper"
 import AllTags from "../components/AllTags"
 import Chip from "../components/Chip"
 
-const tagTemplate = ({ pageContext, data, location }) => {
+const tagTemplate = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} ${
@@ -38,11 +38,7 @@ const tagTemplate = ({ pageContext, data, location }) => {
             >
               {edges.map(({ node }) => {
                 return (
-                  <ProductCard
-                    backNavigationPath={location.pathname}
-                    key={node.id}
-                    shed={{ ...node.frontmatter }}
-                  />
+                  <ProductCard key={node.id} shed={{ ...node.frontmatter }} />
                 )
               })}
             </ProductSection>
