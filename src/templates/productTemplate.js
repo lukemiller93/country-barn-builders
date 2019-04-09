@@ -128,7 +128,7 @@ const productTemplate = ({ data, pageContext, location }, props) => {
         {size && size !== null ? (
           <>
             <ProductInfo>
-              {location.state.navigationPath !== undefined ? (
+              {location.state.navigationPath ? (
                 <StyledLink to={location.state.navigationPath}>
                   Back to all {`${size}'s`}
                 </StyledLink>

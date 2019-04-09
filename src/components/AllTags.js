@@ -33,9 +33,3 @@ const AllTags = () => (
 )
 
 export default AllTags
-//   < TagLink
-// activeClassName = "tag__active"
-// to = {`/tags/${tag.fieldValue}/`}
-//             >
-//   { tag.fieldValue }
-//             </TagLink >
