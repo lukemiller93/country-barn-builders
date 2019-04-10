@@ -4,6 +4,7 @@ module.exports = {
   description: `Country Barn Builders is a full service portable storage shed company that specializes in standard and custom solutions for any budget. We service London, KY and the surrounding areas.`,
   url: "https://countrybarnbuilders.com",
   siteUrl: "https://countrybarnbuilders.com",
+  siteLanguage: "en",
   logo: "src/images/company-logo.png",
   banner: "src/images/london-lot.jpg",
   favicon: "src/images/favicon.png",
