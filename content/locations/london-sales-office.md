@@ -10,7 +10,7 @@ address:
   city: London
   post_code: '40741'
   state: KY
-  street: 565 Highway 192 W.
+  street: 570 West Highway 192
 phone: 606-877-1216
 business_hours:
   - day: Mon. - Thurs.
