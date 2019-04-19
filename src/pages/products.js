@@ -35,6 +35,7 @@ const Container = styled.div`
     }
   }
 `
+const StylesCardContainer = styled.div``
 
 const StyledPhone = styled.a`
   color: ${props => props.theme.colors.secondary.base};
@@ -68,6 +69,21 @@ const products = ({ location }) => {
           </p>
         </Container>
       </StylesHeader>
+      <ContentWrapper>
+        <StylesCardContainer>
+          <div
+            style={{
+              height: `75vh`,
+              display: `flex`,
+              justifyContent: `center`,
+              alignItems: `center`,
+              width: `100%`,
+            }}
+          >
+            <p>Page still under construction</p>
+          </div>
+        </StylesCardContainer>
+      </ContentWrapper>
     </Layout>
   )
 }
