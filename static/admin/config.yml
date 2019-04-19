@@ -105,7 +105,7 @@ collections:
       preview: false
     fields:
       - { name: "template", widget: "hidden", default: "shed-styles" }
-      - { name: "title", label: "Title", widget: "text", required: true }
+      - { name: "title", label: "Title", widget: "string", required: true }
       - {
           name: "starting_price",
           label: "Starting At:",
