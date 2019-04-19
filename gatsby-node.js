@@ -50,7 +50,7 @@ exports.createPages = ({ actions, graphql }) => {
             ? products[0].node
             : products[index + 1].node
         createPage({
-          path: `/specials/${node.frontmatter.serial}/`,
+          path: `/specials/${node.frontmatter.serial}`,
           component: productTemplate,
           context: {
             id: node.id,
@@ -73,7 +73,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Make tag pages
       tags.forEach(tag => {
         createPage({
-          path: `/tags/${tag}/`,
+          path: `/tags/${tag}`,
           component: tagPosts,
           context: {
             tag,

@@ -1,7 +1,7 @@
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import Button from "@material-ui/core/Button"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import React from "react"
 import RedButton from "../components/RedButton"
@@ -10,6 +10,13 @@ import { ContentWrapper, Layout } from "../layouts"
 const QualitySection = styled.section`
   background: white;
   padding: 2rem 0;
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: ${props => props.theme.breakpoints.md};
 `
 const RtoSection = styled.section`
   background: ${props => props.theme.colors.primary.dark};
@@ -57,7 +64,29 @@ const IndexPage = ({ data, location }, props) => (
           Mennonite craftsmanship and integrity, now with two locations in
           London, KY to serve you better!
         </p>
-        <RedButton to="/locations" buttonText="View Locations" />
+        <ButtonContainer>
+          <RedButton to="/locations" buttonText="View Locations" />
+          <Button
+            to="/new-shed-styles"
+            component={Link}
+            size="large"
+            css={css`
+              color: #902822 !important;
+            `}
+          >
+            New Building Styles
+          </Button>
+          <Button
+            component={Link}
+            to="/specials"
+            size="large"
+            css={css`
+              color: #902822 !important;
+            `}
+          >
+            Special Sales
+          </Button>
+        </ButtonContainer>
       </ContentWrapper>
     </QualitySection>
     <RtoSection>

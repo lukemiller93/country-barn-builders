@@ -96,3 +96,31 @@ collections:
               widget: string,
               required: true,
             }
+  - name: "shed-styles"
+    label: Building Styles
+    label_singular: Building Style
+    folder: content/shed-styles
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { name: "template", widget: "hidden", default: "shed-styles" }
+      - { name: "title", label: "Title", widget: "text", required: true }
+      - {
+          name: "starting_price",
+          label: "Starting At:",
+          widget: "string",
+          required: true,
+        }
+      - {
+          name: "featured_image",
+          label: "Image",
+          widget: "image",
+          required: true,
+        }
+      - {
+          name: "alt_text",
+          label: "Image Alt Text",
+          widget: "string",
+          required: true,
+        }

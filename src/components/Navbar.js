@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import EmailOutlined from "@material-ui/icons/EmailOutlined"
 import LocalOfferOutlined from "@material-ui/icons/LocalOfferOutlined"
 import PlaceOutlined from "@material-ui/icons/PlaceOutlined"
+import MonetizationOnOutlined from "@material-ui/icons/MonetizationOnOutlined"
 import { Link } from "gatsby"
 import React from "react"
 import logo from "../images/company-logo.svg"
@@ -101,6 +102,9 @@ const NavBar = () => {
         <Nav>
           <NavLink activeClassName="nav-link__active" to="/locations">
             <PlaceOutlined aria-label="Locations" /> Locations
+          </NavLink>
+          <NavLink activeClassName="nav-link__active" to="/products">
+            <MonetizationOnOutlined aria-label="Products" /> Products
           </NavLink>
           <NavLink activeClassName="nav-link__active" to="/specials">
             <LocalOfferOutlined aria-label="Specials" /> Specials

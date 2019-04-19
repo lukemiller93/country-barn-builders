@@ -3,6 +3,7 @@ import EmailOutlined from "@material-ui/icons/EmailOutlined"
 import HomeOutlined from "@material-ui/icons/HomeOutlined"
 import LocalOfferOutlined from "@material-ui/icons/LocalOfferOutlined"
 import PlaceOutlined from "@material-ui/icons/PlaceOutlined"
+import MonetizationOnOutlined from "@material-ui/icons/MonetizationOnOutlined"
 import { Link } from "gatsby"
 import React from "react"
 
@@ -54,6 +55,10 @@ const BottomNavigationBar = () => {
         <StyledLink activeClassName="nav-link__active" to="/locations">
           <PlaceOutlined aria-label="Locations" />
           Locations
+        </StyledLink>
+        <StyledLink activeClassName="nav-link__active" to="/products">
+          <MonetizationOnOutlined aria-label="Products" />
+          Products
         </StyledLink>
         <StyledLink activeClassName="nav-link__active" to="/specials">
           <LocalOfferOutlined aria-label="Specials" />
