@@ -107,6 +107,12 @@ collections:
       - { name: "template", widget: "hidden", default: "shed-styles" }
       - { name: "title", label: "Title", widget: "string", required: true }
       - {
+          name: "sizes",
+          label: "Available Sizes",
+          widget: "string",
+          required: true,
+        }
+      - {
           name: "starting_price",
           label: "Starting At:",
           widget: "string",
