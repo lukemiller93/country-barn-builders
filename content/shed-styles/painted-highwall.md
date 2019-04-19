@@ -1,6 +1,6 @@
 ---
 template: shed-styles
-title: Painted Highwall
+title: Wood Highwall
 sizes: 10x12 - 14x40
 starting_price: '2350'
 featured_image: /assets/wood-highwall.jpg
