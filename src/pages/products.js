@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
+import { graphql } from "gatsby"
 //components
 import { Layout, ContentWrapper } from "../layouts"
 import Seo from "../components/Seo"
@@ -35,13 +36,51 @@ const Container = styled.div`
     }
   }
 `
-const StylesCardContainer = styled.div``
+const StylesCardContainer = styled.div`
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`
+
+const StyleCard = styled.article`
+  width: ${props => props.theme.breakpoints.sm};
+  margin: 0.5rem;
+  background: ${props => props.theme.colors.primary.light};
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px 4px ${props => props.theme.colors.black.withAlpha};
+
+  .gatsby-image-wrapper {
+    border-radius: 10px 10px 0 0;
+  }
+
+  h2 {
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  p {
+    padding: 0.5rem 1rem 0;
+    font-weight: 700;
+  }
+
+  p:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  span {
+    font-weight: normal;
+    color: ${props => props.theme.colors.secondary.dark};
+  }
+`
 
 const StyledPhone = styled.a`
   color: ${props => props.theme.colors.secondary.base};
   font-weight: 700;
 `
-const products = ({ location }) => {
+const products = ({ location, data }) => {
+  const { edges } = data.allMarkdownRemark
   return (
     <Layout>
       <Seo
@@ -71,17 +110,46 @@ const products = ({ location }) => {
       </StylesHeader>
       <ContentWrapper>
         <StylesCardContainer>
-          <div
-            style={{
-              height: `75vh`,
-              display: `flex`,
-              justifyContent: `center`,
-              alignItems: `center`,
-              width: `100%`,
-            }}
-          >
-            <p>Page still under construction</p>
-          </div>
+          {edges.length < 1 ? (
+            <div
+              style={{
+                height: `75vh`,
+                display: `flex`,
+                justifyContent: `center`,
+                alignItems: `center`,
+                width: `100%`,
+              }}
+            >
+              <p>Page still under construction</p>
+            </div>
+          ) : (
+            edges.map(({ node }) => {
+              const {
+                sizes,
+                title,
+                starting_price,
+                featured_image,
+                alt_text,
+              } = node.frontmatter
+
+              return (
+                <StyleCard key={node.id}>
+                  <Image
+                    fluid={featured_image.childImageSharp.fluid}
+                    alt={alt_text}
+                  />
+                  <h2>{title}</h2>
+                  <p>
+                    Sizes available: <span>{sizes}</span>
+                  </p>
+                  <p>
+                    Starting at:{" "}
+                    <span>{`$${Number(starting_price).toFixed(2)} + tax`}</span>
+                  </p>
+                </StyleCard>
+              )
+            })
+          )}
         </StylesCardContainer>
       </ContentWrapper>
     </Layout>
@@ -89,3 +157,35 @@ const products = ({ location }) => {
 }
 
 export default products
+
+export const buildingStyleQuery = graphql`
+  query productStyles {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___title], order: ASC }
+      filter: { frontmatter: { template: { eq: "shed-styles" } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          frontmatter {
+            title
+            template
+            sizes
+            starting_price
+            featured_image {
+              id
+              childImageSharp {
+                id
+                fluid(maxWidth: 620) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
+            alt_text
+          }
+          id
+        }
+      }
+    }
+  }
+`

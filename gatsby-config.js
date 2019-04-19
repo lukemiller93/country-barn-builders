@@ -34,6 +34,13 @@ module.exports = {
         path: `${__dirname}/content/specials`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `specials`,
+        path: `${__dirname}/content/shed-styles`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
