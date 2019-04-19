@@ -1,6 +1,6 @@
 ---
 template: shed-styles
-title: Painted Utility
+title: Wood Utility
 sizes: 8x8 - 14x40
 starting_price: '1400'
 featured_image: /assets/wood-utility.jpg
