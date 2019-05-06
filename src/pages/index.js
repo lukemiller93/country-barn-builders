@@ -67,7 +67,7 @@ const IndexPage = ({ data, location }, props) => (
         <ButtonContainer>
           <RedButton to="/locations" buttonText="View Locations" />
           <Button
-            to="/new-shed-styles"
+            to="/products"
             component={Link}
             size="large"
             css={css`
