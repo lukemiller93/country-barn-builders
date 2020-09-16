@@ -81,20 +81,6 @@ module.exports = {
         head: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: config.title,
-        short_name: config.shortName,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: `standalone`,
-        icon: config.favicon, // This path is relative to the root of the site.
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     "gatsby-plugin-offline",
   ],
 }
