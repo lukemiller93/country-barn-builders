@@ -6,6 +6,30 @@ exports.onCreateNode = ({ node }) => {
   fmImagesToRelative(node)
 }
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      template: String
+      date: Date
+      size: String
+      style: String
+      serial: String
+      price: Int
+      options: String
+      gallery_image: [ImageGallery]
+    }
+    type ImageGallery {
+      alt_text: String
+      gallery_item: File
+    }
+  `
+  createTypes(typeDefs)
+}
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -17,7 +41,6 @@ exports.createPages = ({ actions, graphql }) => {
     {
       allMarkdownRemark(
         filter: { frontmatter: { template: { eq: "product" } } }
-        sort: { fields: [frontmatter___size], order: ASC }
         limit: 1000
       ) {
         edges {
@@ -38,6 +61,7 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const products = result.data.allMarkdownRemark.edges
+
     if (products.length >= 1) {
       // create product pages
       products.forEach(({ node }, index) => {
